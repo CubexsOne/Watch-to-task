@@ -5,7 +5,7 @@
   "description": "Speichert den aktuellen Tab als Checklisten-Eintrag in Obsidian.",
   "browser_specific_settings": {
     "gecko": {
-      "id": "email@cubexs.dev",
+      "id": "mozilla-addons@cubexs.dev",
       "data_collection_permissions": {
         "required": ["none"]
       }
