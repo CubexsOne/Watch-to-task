@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Watch to Task – Einstellungen</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 16px;
+      max-width: 420px;
+      color-scheme: light dark;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 4px;
+      padding: 6px 8px;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 16px;
+      padding: 6px 16px;
+      font-size: 14px;
+    }
+    #status {
+      margin-left: 8px;
+      color: #2e7d32;
+    }
+    .hint {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Watch to Task</h2>
+
+  <label for="vault">Vault-Name</label>
+  <input id="vault" type="text" placeholder="MeinVault">
+  <p class="hint">Exakt wie in Obsidian benannt.</p>
+
+  <label for="file">Zieldatei</label>
+  <input id="file" type="text" placeholder="Inbox/Watch Later.md">
+  <p class="hint">Pfad relativ zum Vault. Wird angelegt, falls nicht vorhanden.</p>
+
+  <button id="save">Speichern</button><span id="status"></span>
+
+  <script src="options.js"></script>
+</body>
+</html>
