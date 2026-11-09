@@ -11,16 +11,16 @@ const buildEntry = (tab) =>
   `- [ ] [${escapeTitle(tab.title || tab.url)}](${escapeUrl(tab.url)}) - ${formatDate(new Date())}`;
 
 const showBadge = (tabId, text, color) => {
-  browser.action.setBadgeText({ text, tabId });
-  browser.action.setBadgeBackgroundColor({ color, tabId });
-  setTimeout(() => browser.action.setBadgeText({ text: "", tabId }), 1500);
+  chrome.action.setBadgeText({ text, tabId });
+  chrome.action.setBadgeBackgroundColor({ color, tabId });
+  setTimeout(() => chrome.action.setBadgeText({ text: "", tabId }), 1500);
 };
 
-browser.action.onClicked.addListener(async (tab) => {
-  const { vault, file } = await browser.storage.sync.get(["vault", "file"]);
+chrome.action.onClicked.addListener(async (tab) => {
+  const { vault, file } = await chrome.storage.sync.get(["vault", "file"]);
 
   if (!vault || !file) {
-    browser.runtime.openOptionsPage();
+    chrome.runtime.openOptionsPage();
     return;
   }
 
@@ -30,7 +30,7 @@ browser.action.onClicked.addListener(async (tab) => {
     `&content=${encodeURIComponent(buildEntry(tab))}&append=true`;
 
   try {
-    await browser.tabs.update(tab.id, { url: obsidianUrl });
+    await chrome.tabs.update(tab.id, { url: obsidianUrl });
     showBadge(tab.id, "✓", "#2e7d32");
   } catch (e) {
     showBadge(tab.id, "!", "#c62828");
